@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1A1A22">
+  <title>Yuviro — Freelance Web Developer, Osaka</title>
+  <meta name="description" content="I build fast, modern websites for businesses — delivered in 72 hours. Based in Osaka, Japan.">
+
+  <meta property="og:title" content="Yuviro — Freelance Web Developer">
+  <meta property="og:description" content="I build fast, modern websites for businesses — delivered in 72 hours. Based in Osaka, Japan.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuviro09.github.io/">
+  <meta property="og:image" content="https://yuviro09.github.io/og-image.png">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yuviro — Freelance Web Developer">
+  <meta name="twitter:description" content="I build fast, modern websites for businesses — delivered in 72 hours.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">Yuviro</a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#work" class="nav-link" data-i18n="nav-work">Work</a>
+        <a href="#pricing" class="nav-link" data-i18n="nav-pricing">Pricing</a>
+        <a href="#about" class="nav-link" data-i18n="nav-about">About</a>
+        <a href="#contact" class="nav-link" data-i18n="nav-contact">Contact</a>
+      </nav>
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">JP</button>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+      <a href="#work" class="mobile-nav-link" data-i18n="nav-work">Work</a>
+      <a href="#pricing" class="mobile-nav-link" data-i18n="nav-pricing">Pricing</a>
+      <a href="#about" class="mobile-nav-link" data-i18n="nav-about">About</a>
+      <a href="#contact" class="mobile-nav-link" data-i18n="nav-contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="container hero-inner">
+        <div class="hero-photo">
+          <div class="photo-wrap">
+            <img src="profile.png" alt="Yuviro — Freelance Web Developer" class="profile-photo" width="220" height="220">
+            <span class="status-dot" aria-label="Available for work"></span>
+          </div>
+        </div>
+        <div class="hero-content">
+          <h1 class="hero-name">Yuviro</h1>
+          <p class="hero-tagline" data-i18n="hero-tagline">I build fast, modern websites for businesses — delivered in 72 hours</p>
+          <div class="hero-trust-badges">
+            <span class="trust-badge" data-i18n="hero-trust-1">✓ 72-hour delivery</span>
+            <span class="trust-badge" data-i18n="hero-trust-2">✓ Mobile-first design</span>
+            <span class="trust-badge" data-i18n="hero-trust-3">✓ 2 sites in portfolio</span>
+          </div>
+          <div class="hero-intro">
+            <p data-i18n="hero-intro">I'm a university student in Osaka, Japan building landing pages for businesses. Fast turnaround. Clean code. Affordable pricing.</p>
+          </div>
+          <div class="hero-buttons">
+            <a href="#work" class="btn btn-primary" data-i18n="btn-see-work">See My Work</a>
+            <a href="#contact" class="btn btn-secondary" data-i18n="btn-lets-talk">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <h2 class="section-title" data-i18n="section-what-i-do">What I Do</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <h3 class="service-title" data-i18n="service-landing-title">Landing Pages</h3>
+            <p class="service-desc" data-i18n="service-landing-desc">High-converting single-page sites designed to grab attention and drive action. Optimized for speed and mobile from the ground up.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-title" data-i18n="service-business-title">Business Sites</h3>
+            <p class="service-desc" data-i18n="service-business-desc">Clean, professional multi-section websites that establish credibility. Perfect for cafés, agencies, and local businesses.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-title" data-i18n="service-delivery-title">Fast Delivery</h3>
+            <p class="service-desc" data-i18n="service-delivery-desc">Most projects shipped within 72 hours. No bloated templates — hand-coded, tested, and ready to go live quickly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="work">
+      <div class="container">
+        <h2 class="section-title" data-i18n="section-portfolio">Portfolio</h2>
+        <div class="portfolio-grid">
+          <article class="project-card">
+            <div class="project-thumb-wrap">
+              <div class="browser-chrome">
+                <span class="chrome-dot red"></span>
+                <span class="chrome-dot yellow"></span>
+                <span class="chrome-dot green"></span>
+              </div>
+              <div class="project-thumb cafe-thumb">
+                <span class="project-thumb-label">Kissa Café</span>
+              </div>
+              <span class="live-badge" data-i18n="live-site">Live Site ↗</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">Kissa Café</h3>
+              <p class="project-desc" data-i18n="project-cafe-desc">Landing page for a modern café — warm aesthetic, mobile-first, animated sections</p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JS</span>
+              </div>
+              <a href="https://yuviro09.github.io/cafe-site/" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="live-site">Live Site ↗</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-thumb-wrap">
+              <div class="browser-chrome">
+                <span class="chrome-dot red"></span>
+                <span class="chrome-dot yellow"></span>
+                <span class="chrome-dot green"></span>
+              </div>
+              <div class="project-thumb nexus-thumb">
+                <span class="project-thumb-label">Nexus Labs</span>
+              </div>
+              <span class="live-badge" data-i18n="live-site">Live Site ↗</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">Nexus Labs</h3>
+              <p class="project-desc" data-i18n="project-nexus-desc">Dark-mode SaaS landing page — premium design, scroll animations</p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JS</span>
+              </div>
+              <a href="https://yuviro09.github.io/tech-site/" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="live-site">Live Site ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <h2 class="section-title" data-i18n="section-pricing">Pricing</h2>
+        <div class="currency-toggle" role="group" aria-label="Select currency">
+          <button class="currency-toggle-btn active" data-currency="jpy" aria-pressed="true">¥ JPY</button>
+          <button class="currency-toggle-btn" data-currency="usd" aria-pressed="false">$ USD</button>
+          <button class="currency-toggle-btn" data-currency="eur" aria-pressed="false">€ EUR</button>
+        </div>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3 class="pricing-tier" data-i18n="tier-basic">Basic</h3>
+            <p class="pricing-price" data-jpy="¥15,000" data-usd="$100" data-eur="€95">¥15,000</p>
+            <ul class="pricing-features">
+              <li data-i18n="basic-feature-1">1-page landing page</li>
+              <li data-i18n="basic-feature-2">72-hour delivery</li>
+            </ul>
+            <p class="pricing-trust" data-i18n="pricing-trust">No hidden fees. Pay only after you're satisfied with the design direction.</p>
+          </div>
+          <div class="pricing-card pricing-popular">
+            <h3 class="pricing-tier" data-i18n="tier-standard">Standard</h3>
+            <p class="pricing-price" data-jpy="¥30,000" data-usd="$200" data-eur="€185">¥30,000</p>
+            <ul class="pricing-features">
+              <li data-i18n="standard-feature-1">Multi-section site</li>
+              <li data-i18n="standard-feature-2">Mobile responsive</li>
+            </ul>
+            <p class="pricing-trust" data-i18n="pricing-trust">No hidden fees. Pay only after you're satisfied with the design direction.</p>
+          </div>
+          <div class="pricing-card">
+            <h3 class="pricing-tier" data-i18n="tier-custom">Custom</h3>
+            <p class="pricing-price" data-jpy="Contact for quote" data-usd="Contact for quote" data-eur="Contact for quote" data-i18n="price-contact">Contact</p>
+            <ul class="pricing-features">
+              <li data-i18n="custom-feature-1">Custom requirements</li>
+              <li data-i18n="custom-feature-2">Quote on request</li>
+            </ul>
+            <p class="pricing-trust" data-i18n="pricing-trust">No hidden fees. Pay only after you're satisfied with the design direction.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <h2 class="section-title" data-i18n="section-about">About</h2>
+        <p class="about-text" data-i18n="about-text">I'm an international student at Ritsumeikan University in Osaka, and I've been passionate about building on the web ever since I wrote my first line of HTML. What started as a curiosity turned into a skill I use to help local businesses get online quickly with sites that actually look good and perform well. I keep things lean, communicate clearly, and ship fast.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title" data-i18n="section-contact">Contact</h2>
+        <p class="contact-lead" data-i18n="contact-lead">Got a project in mind? I reply within 12 hours (JST).</p>
+        <div class="contact-links">
+          <a href="mailto:yuvinomattu@gmail.com" class="contact-link" data-i18n="contact-email">yuvinomattu@gmail.com</a>
+          <a href="https://www.instagram.com/yuviro.ani?igsh=cmp6NTc4bTN0amVz" class="contact-link" target="_blank" rel="noopener noreferrer" data-i18n="contact-instagram">Instagram</a>
+          <a href="https://line.me/ti/p/~yuviro09" class="contact-link" target="_blank" rel="noopener noreferrer" data-i18n="contact-line">Line</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-brand">Yuviro</p>
+      <p class="footer-tagline" data-i18n="footer-tagline">I build fast, modern websites for businesses — delivered in 72 hours</p>
+      <p class="footer-year">2026</p>
+    </div>
+  </footer>
+
+  <a href="mailto:yuvinomattu@gmail.com" class="floating-cta" aria-label="Let's Work" data-i18n="floating-cta">💬 Let's Work</a>
+  <script src="script.js"></script>
+</body>
+</html>
