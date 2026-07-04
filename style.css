@@ -1,944 +1,441 @@
-/* Reset & Base */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-:root {
-  --color-bg: #1A1A22;
-  --color-bg-rgb: 26, 26, 34;
-  --color-surface: #222230;
-  --color-surface-2: #2A2A38;
-  --color-surface-2-rgb: 42, 42, 56;
-  --color-text: #EEEEF2;
-  --color-text-muted: #9090A8;
-  --color-accent: #2563EB;
-  --color-accent-rgb: 37, 99, 235;
-  --color-accent-hover: #1d4ed8;
-  --color-accent-light: #5B8DEF;
-  --color-purple: #7C3AED;
-  --color-purple-rgb: 124, 58, 237;
-  --color-teal: #0891B2;
-  --color-teal-rgb: 8, 145, 178;
-  --color-green: #22C55E;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-white: #ffffff;
-  --color-white-rgb: 255, 255, 255;
-  --color-black-rgb: 0, 0, 0;
-  --color-overlay: #1A1A1A;
-  --color-overlay-rgb: 26, 26, 26;
-  --color-chrome-red: #FF5F57;
-  --color-chrome-yellow: #FFBD2E;
-  --color-chrome-green: #28C840;
-  --color-cafe-start: #3A3028;
-  --color-cafe-end: #C4845A;
-  --color-nexus-start: #0D0D0F;
-  --color-nexus-end: #1a1a2e;
-  --color-footer: #14141A;
-  --color-hero-center: #252535;
-}
-
-body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* Container */
-.container {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-/* Header */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: rgba(var(--color-bg-rgb), 0.90);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-}
-
-.logo {
-  font-weight: 700;
-  font-size: 1.25rem;
-  letter-spacing: -0.02em;
-  color: var(--color-text);
-}
-
-.desktop-nav {
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-link {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--color-text-muted);
-  transition: color 0.2s;
-}
-
-.nav-link:hover {
-  color: var(--color-text);
-}
-
-/* Language Toggle */
-.lang-toggle {
-  background: none;
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  padding: 0.35rem 0.65rem;
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
-  margin-right: 0.5rem;
-}
-
-.lang-toggle:hover {
-  background-color: rgba(var(--color-accent-rgb), 0.1);
-  border-color: rgba(var(--color-accent-rgb), 0.4);
-  color: var(--color-text);
-}
-
-/* Mobile Menu Toggle */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
-  position: relative;
-}
-
-.hamburger,
-.hamburger::before,
-.hamburger::after {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background-color: var(--color-text);
-  border-radius: 2px;
-  transition: transform 0.25s, opacity 0.25s;
-}
-
-.hamburger {
-  position: relative;
-}
-
-.hamburger::before,
-.hamburger::after {
-  content: '';
-  position: absolute;
-  left: 0;
-}
-
-.hamburger::before {
-  top: -7px;
-}
-
-.hamburger::after {
-  top: 7px;
-}
-
-.menu-toggle[aria-expanded="true"] .hamburger {
-  background-color: transparent;
-}
-
-.menu-toggle[aria-expanded="true"] .hamburger::before {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.menu-toggle[aria-expanded="true"] .hamburger::after {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* Mobile Nav */
-.mobile-nav {
-  display: none;
-  flex-direction: column;
-  padding: 0.5rem 1.5rem 1.5rem;
-  gap: 1rem;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.mobile-nav.is-open {
-  display: flex;
-}
-
-.mobile-nav-link {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--color-text-muted);
-  padding: 0.5rem 0;
-}
-
-/* Hero */
-.hero {
-  padding: 6rem 0 5rem;
-  background: radial-gradient(ellipse at center, var(--color-hero-center) 0%, var(--color-bg) 70%);
-  position: relative;
-}
-
-.hero-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
-.hero-photo {
-  position: relative;
-  flex-shrink: 0;
-  isolation: isolate;
-}
-
-.hero-photo::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.15) 0%, transparent 65%);
-  border-radius: 50%;
-  z-index: -1;
-}
-
-.photo-wrap {
-  position: relative;
-  display: inline-block;
-}
-
-.profile-photo {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--color-accent);
-  outline: none;
-  box-shadow: 0 0 30px rgba(var(--color-accent-rgb), 0.2);
-  display: block;
-}
-
-.status-dot {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  width: 12px;
-  height: 12px;
-  background-color: var(--color-green);
-  border-radius: 50%;
-  border: 2px solid var(--color-surface-2);
-}
-
-.status-dot::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: var(--color-green);
-  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-
-@keyframes ping {
-  75%, 100% {
-    transform: scale(2.5);
-    opacity: 0;
-  }
-}
-
-.hero-content {
-  text-align: center;
-}
-
-.hero-name {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 1rem;
-  color: var(--color-text);
-}
-
-.hero-tagline {
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-  font-weight: 500;
-  color: var(--color-text-muted);
-  max-width: 560px;
-  margin: 0 auto 1.5rem;
-  line-height: 1.5;
-}
-
-.hero-trust-badges {
-  display: flex;
-  gap: 0.6rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 1.5rem;
-}
-
-.trust-badge {
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--color-text-muted);
-  background-color: var(--color-surface-2);
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
-  border: 1px solid var(--color-border);
-}
-
-.hero-intro {
-  max-width: 520px;
-  margin: 0 auto 2rem;
-  color: var(--color-text-muted);
-  font-size: 1rem;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.85rem 1.75rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border-radius: 8px;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s, border-color 0.2s, filter 0.2s;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-.btn-primary {
-  background-color: var(--color-accent);
-  color: var(--color-white);
-  box-shadow: 0 4px 14px rgba(var(--color-accent-rgb), 0.25);
-}
-
-.btn-primary:hover {
-  filter: brightness(1.1);
-  box-shadow: 0 6px 20px rgba(var(--color-accent-rgb), 0.35);
-}
-
-.btn-secondary {
-  background-color: transparent;
-  color: var(--color-text);
-  border: 1px solid rgba(var(--color-white-rgb), 0.2);
-  box-shadow: none;
-}
-
-.btn-secondary:hover {
-  background-color: transparent;
-  border-color: var(--color-accent);
-  box-shadow: none;
-}
-
-/* Sections */
-section {
-  padding: 4rem 0;
-  position: relative;
-}
-
-section::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  max-width: 300px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(var(--color-accent-rgb), 0.25), transparent);
-}
-
-.hero::after,
-.contact::after {
-  display: none;
-}
-
-.section-title {
-  font-size: clamp(1.6rem, 3vw, 2rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 2.5rem;
-  text-align: center;
-  color: var(--color-text);
-}
-
-/* Services */
-.services {
-  background-color: var(--color-surface);
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.service-card {
-  background-color: var(--color-surface-2);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 1.75rem;
-  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-  position: relative;
-  overflow: hidden;
-}
-
-.service-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(var(--color-accent-rgb), 0.35);
-  box-shadow: 0 8px 24px rgba(var(--color-accent-rgb), 0.08);
-}
-
-.service-card::before {
-  content: '';
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-  display: block;
-}
-
-.services-grid .service-card:nth-child(1)::before {
-  background: rgba(var(--color-accent-rgb), 0.12);
-  border: 2px solid rgba(var(--color-accent-rgb), 0.25);
-}
-
-.services-grid .service-card:nth-child(2)::before {
-  background: rgba(var(--color-purple-rgb), 0.12);
-  border: 2px solid rgba(var(--color-purple-rgb), 0.25);
-}
-
-.services-grid .service-card:nth-child(3)::before {
-  background: rgba(var(--color-teal-rgb), 0.12);
-  border: 2px solid rgba(var(--color-teal-rgb), 0.25);
-}
-
-.services-grid .service-card:nth-child(1) {
-  border-top: 3px solid var(--color-accent);
-}
-
-.services-grid .service-card:nth-child(2) {
-  border-top: 3px solid var(--color-purple);
-}
-
-.services-grid .service-card:nth-child(3) {
-  border-top: 3px solid var(--color-teal);
-}
-
-.service-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--color-text);
-}
-
-.service-desc {
-  font-size: 0.92rem;
-  color: var(--color-text-muted);
-  line-height: 1.6;
-}
-
-/* Portfolio */
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-}
-
-.project-card {
-  background-color: var(--color-surface-2);
-  border: 1px solid var(--color-border);
-  border-radius: 14px;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-  position: relative;
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(var(--color-accent-rgb), 0.35);
-  box-shadow: 0 12px 32px rgba(var(--color-accent-rgb), 0.1);
-}
-
-.project-thumb-wrap {
-  position: relative;
-}
-
-.project-thumb-wrap::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: linear-gradient(to top, rgba(var(--color-overlay-rgb), 0.85), transparent);
-  border-radius: 0 0 10px 10px;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.browser-chrome {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0.5rem 0.75rem;
-  background-color: rgba(var(--color-white-rgb), 0.06);
-  border-radius: 10px 10px 0 0;
-}
-
-.chrome-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  display: block;
-}
-
-.chrome-dot.red { background-color: var(--color-chrome-red); }
-.chrome-dot.yellow { background-color: var(--color-chrome-yellow); }
-.chrome-dot.green { background-color: var(--color-chrome-green); }
-
-.project-thumb {
-  width: 100%;
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  border-radius: 0 0 10px 10px;
-}
-
-.cafe-thumb {
-  background: linear-gradient(135deg, var(--color-cafe-start) 0%, var(--color-cafe-end) 100%);
-}
-
-.project-thumb-label {
-  display: none;
-}
-
-.nexus-thumb {
-  background: linear-gradient(135deg, var(--color-nexus-start) 0%, var(--color-nexus-end) 100%);
-}
-
-.live-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: rgba(var(--color-surface-2-rgb), 0.92);
-  color: var(--color-accent-light);
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.35rem 0.7rem;
-  border-radius: 6px;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 2px 8px rgba(var(--color-black-rgb), 0.2);
-  pointer-events: none;
-  z-index: 2;
-}
-
-.project-body {
-  padding: 2.5rem 1.5rem 1.5rem;
-  position: relative;
-}
-
-.project-name {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0;
-  position: absolute;
-  top: -60px;
-  left: 1.5rem;
-  right: 1.5rem;
-  z-index: 2;
-  color: var(--color-white);
-  text-shadow: 0 1px 4px rgba(var(--color-black-rgb), 0.3);
-}
-
-.project-desc {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  line-height: 1.55;
-  margin-bottom: 0.75rem;
-}
-
-.project-tags {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.tag {
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 0.3rem 0.7rem;
-  border-radius: 999px;
-  background-color: rgba(var(--color-accent-rgb), 0.12);
-  color: var(--color-accent-light);
-}
-
-.project-link {
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--color-accent);
-  transition: color 0.2s;
-}
-
-.project-link:hover {
-  color: var(--color-accent-hover);
-}
-
-/* Pricing */
-.pricing {
-  background-color: var(--color-surface);
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.pricing-card {
-  background-color: var(--color-surface-2);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 1.75rem;
-  text-align: center;
-  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-}
-
-.pricing-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(var(--color-accent-rgb), 0.35);
-  box-shadow: 0 8px 24px rgba(var(--color-accent-rgb), 0.08);
-}
-
-.pricing-grid .pricing-card:nth-child(3) {
-  background: linear-gradient(var(--color-surface-2), var(--color-surface-2)) padding-box,
-              linear-gradient(135deg, var(--color-accent), var(--color-purple)) border-box;
-  border: 2px solid transparent;
-}
-
-.pricing-grid .pricing-card:nth-child(3):hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(var(--color-purple-rgb), 0.12);
-}
-
-.pricing-popular {
-  border: 1px solid var(--color-accent);
-  box-shadow: 0 0 0 1px rgba(var(--color-accent-rgb), 0.15), 0 8px 32px rgba(var(--color-accent-rgb), 0.2);
-}
-
-.pricing-popular:hover {
-  box-shadow: 0 0 0 1px rgba(var(--color-accent-rgb), 0.2), 0 16px 48px rgba(var(--color-accent-rgb), 0.25);
-}
-
-.pricing-tier {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--color-text-muted);
-}
-
-.pricing-price {
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
-  transition: opacity 0.2s ease;
-}
-
-.pricing-price.is-changing {
-  opacity: 0.3;
-}
-
-/* Currency Toggle */
-.currency-toggle {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 8px rgba(var(--color-black-rgb), 0.15);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.currency-toggle-btn {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 0.6rem 1.2rem;
-  min-height: 44px;
-  border: 1px solid var(--color-border);
-  background-color: var(--color-surface-2);
-  color: var(--color-text-muted);
-  cursor: pointer;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-}
-
-.currency-toggle-btn:first-child {
-  border-radius: 8px 0 0 8px;
-  border-right: none;
-}
-
-.currency-toggle-btn:last-child {
-  border-radius: 0 8px 8px 0;
-  border-left: none;
-}
-
-.currency-toggle-btn:not(:first-child):not(:last-child) {
-  border-right: none;
-  border-left: none;
-}
-
-.currency-toggle-btn.active {
-  background-color: var(--color-accent);
-  color: var(--color-white);
-  border-color: var(--color-accent);
-}
-
-@media (max-width: 768px) {
-  .currency-toggle-btn {
-    font-size: 0.78rem;
-    padding: 0.5rem 0.9rem;
-  }
-}
-
-.pricing-features {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  line-height: 1.7;
-}
-
-.pricing-trust {
-  font-size: 0.78rem;
-  color: var(--color-text-muted);
-  margin-top: 0.85rem;
-  line-height: 1.5;
-  font-style: italic;
-}
-
-/* About */
-.about-text {
-  max-width: 640px;
-  margin: 0 auto;
-  font-size: 1.05rem;
-  color: var(--color-text-muted);
-  line-height: 1.75;
-  text-align: center;
-}
-
-/* Contact */
-.contact {
-  background-color: var(--color-surface);
-  text-align: center;
-}
-
-.contact-lead {
-  font-size: 1.05rem;
-  color: var(--color-text-muted);
-  margin-bottom: 1.25rem;
-}
-
-.contact-links {
-  display: flex;
-  gap: 1.25rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.contact-link {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-text);
-  padding: 0.6rem 1.25rem;
-  border-radius: 8px;
-  background-color: var(--color-surface-2);
-  border: 1px solid var(--color-border);
-  transition: background 0.2s, transform 0.2s, border-color 0.2s;
-}
-
-.contact-link:hover {
-  background-color: rgba(var(--color-accent-rgb), 0.08);
-  border-color: rgba(var(--color-accent-rgb), 0.35);
-  transform: translateY(-2px);
-}
-
-/* Floating CTA */
-.floating-cta {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  z-index: 99;
-  background-color: var(--color-accent);
-  color: var(--color-white);
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 0.85rem 1.25rem;
-  border-radius: 999px;
-  box-shadow: 0 6px 20px rgba(var(--color-accent-rgb), 0.35);
-  opacity: 0;
-  transform: translateY(10px);
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.floating-cta.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.floating-cta:hover {
-  filter: brightness(1.1);
-  transform: translateY(-2px);
-}
-
-/* Footer */
-.site-footer {
-  padding: 2.5rem 0;
-  background-color: var(--color-footer);
-  border-top: 1px solid var(--color-border);
-}
-
-.footer-inner {
-  text-align: center;
-}
-
-.footer-brand {
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 0.25rem;
-}
-
-.footer-tagline {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  margin-bottom: 0.5rem;
-}
-
-.footer-year {
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-}
-
-/* Desktop Hero Layout */
-@media (min-width: 769px) {
-  .hero-inner {
-    flex-direction: row;
-    align-items: center;
-    gap: 3rem;
+/* ==========================================================================
+   Yuvaraj Singh Mattu — personal identity site
+   Vanilla JS: i18n (EN/JP), mobile nav, scroll reveal, vCard download,
+   portrait motion (desktop only). No dependencies.
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  document.documentElement.classList.remove('no-js');
+  document.documentElement.classList.add('js');
+
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* ------------------------------------------------------------------
+     Translation dictionary
+     ------------------------------------------------------------------ */
+  var translations = {
+    en: {
+      'misc.skip': 'Skip to content',
+      'misc.newTab': '(opens in a new tab)',
+
+      'nav.homeAria': 'Yuvaraj Singh Mattu — top of page',
+      'nav.navAria': 'Main navigation',
+      'nav.menuAria': 'Menu',
+      'nav.linkedinAria': 'Yuvaraj Singh Mattu on LinkedIn (opens in a new tab)',
+      'nav.about': 'About',
+      'nav.work': 'Work',
+      'nav.exploring': 'Exploring',
+      'nav.connect': 'Connect',
+
+      'lang.groupAria': 'Language selection',
+      'lang.enAria': 'Switch to English',
+      'lang.jaAria': 'Switch to Japanese',
+
+      'hero.eyebrow': 'ISSE Student · Developer · Product Builder',
+      'hero.title': 'I turn real-world problems into clear digital products.',
+      'hero.lead': 'I’m Yuvaraj Singh Mattu, an Information Systems Science and Engineering student at Ritsumeikan University in Osaka. I build bilingual websites for real clients and explore AI products, world models and adaptive interfaces.',
+      'hero.location': 'Osaka, Japan',
+      'hero.availability': 'Open to connect · Hackathon 2026',
+      'hero.btnLinkedin': 'Connect on LinkedIn',
+      'hero.btnWork': 'Explore My Work',
+      'hero.portraitAlt': 'Portrait of Yuvaraj Singh Mattu',
+
+      'contact.save': 'Save Contact',
+      'contact.saved': 'Contact Saved ✓',
+      'contact.savedAnnounce': 'Contact card downloaded.',
+
+      'rl.team': 'Currently building at c0mpiled-12',
+      'rl.desc': 'RoundLab is a cross-genre competitive-gaming decision lab built around Dynamic Software Interfaces. It turns a specific match moment into a situation-specific workspace where players can test alternatives, understand consequences and receive a targeted practice drill.',
+      'rl.roleLabel': 'My role',
+      'rl.role': 'Product Lead · Scope Controller · Demo & Pitch',
+      'rl.status': 'Hackathon Build · In Progress',
+
+      'about.eyebrow': 'About',
+      'about.heading': 'Building from real experience.',
+      'about.body': 'I’m an Information Systems Science and Engineering student at Ritsumeikan University in Osaka. I have designed and delivered bilingual websites for local businesses in Japan, and I’m now moving toward AI products and software that responds to real-world context. I enjoy turning unclear problems into practical things people can actually use.',
+      'about.fact1': 'Based in Osaka',
+      'about.fact2': 'Ritsumeikan University',
+      'about.fact3': '2 paid client websites',
+      'about.fact4': 'Building with AI',
+
+      'work.eyebrow': 'Work',
+      'work.heading': 'Selected work',
+      'work.sub': 'Real projects, delivered for real people—and the direction I’m building toward next.',
+      'work.viewLive': 'View Live Site',
+      'work.rl.cat': 'AI Product · Hackathon Build',
+      'work.rl.desc': 'A system that compiles competitive-game situations into custom decision and practice interfaces.',
+      'work.rl.status': 'In Progress',
+      'work.purnima.cat': 'Paid Client Project · Bilingual',
+      'work.purnima.desc': 'Designed and delivered a bilingual website for a local Indian–Nepali restaurant in Osaka, including menu navigation, ordering access, location information and responsive mobile presentation.',
+      'work.dilkhus.cat': 'Paid Client Project · Japanese-first',
+      'work.dilkhus.desc': 'Created a mobile-friendly website for a local food-court restaurant, with bilingual content, visual menu presentation, business information and map access.',
+      'work.more': 'More experiments',
+      'work.kissa.cat': 'Independent Concept Project',
+      'work.kissa.desc': 'A self-initiated café website concept focused on atmosphere, editorial presentation and responsive visual design.',
+
+      'ex.eyebrow': 'Exploring',
+      'ex.heading': 'What I’m exploring',
+      'ex.1.title': 'World Models & Real-World AI',
+      'ex.1.body': 'Exploring systems that can understand environments, anticipate change and interact meaningfully with the physical world.',
+      'ex.2.title': 'Dynamic Software Interfaces',
+      'ex.2.body': 'Interfaces that reorganize themselves around the user’s current situation, objective and constraints instead of forcing every problem into one fixed screen.',
+      'ex.3.title': 'Human-Centred AI Products',
+      'ex.3.body': 'AI products where technology supports judgment and action without removing the person from the decision.',
+
+      'connect.eyebrow': 'Connect',
+      'connect.heading': 'Let’s continue the conversation.',
+      'connect.body': 'I’m interested in meeting developers, founders, product builders and teams working on meaningful technology.',
+
+      'footer.line': 'Yuvaraj Singh Mattu · Osaka, Japan · 2026'
+    },
+
+    ja: {
+      'misc.skip': '本文へスキップ',
+      'misc.newTab': '（新しいタブで開きます）',
+
+      'nav.homeAria': 'Yuvaraj Singh Mattu — ページの先頭へ',
+      'nav.navAria': 'メインナビゲーション',
+      'nav.menuAria': 'メニュー',
+      'nav.linkedinAria': 'Yuvaraj Singh MattuのLinkedIn（新しいタブで開きます）',
+      'nav.about': '自己紹介',
+      'nav.work': '制作実績',
+      'nav.exploring': '探求分野',
+      'nav.connect': 'つながる',
+
+      'lang.groupAria': '言語切り替え',
+      'lang.enAria': '英語に切り替える',
+      'lang.jaAria': '日本語に切り替える',
+
+      'hero.eyebrow': '情報システム科学工学 · デベロッパー · プロダクトビルダー',
+      'hero.title': '現実世界の課題を、明確で使えるデジタルプロダクトへ。',
+      'hero.lead': '立命館大学で情報システム科学工学を学ぶ、Yuvaraj Singh Mattuです。大阪を拠点に、実際のクライアント向けの日英対応ウェブサイトを制作しながら、AIプロダクト、ワールドモデル、状況に適応するインターフェースを探求しています。',
+      'hero.location': '大阪・日本',
+      'hero.availability': 'つながり歓迎 · ハッカソン2026',
+      'hero.btnLinkedin': 'LinkedInでつながる',
+      'hero.btnWork': '制作実績を見る',
+      'hero.portraitAlt': 'Yuvaraj Singh Mattuのポートレート',
+
+      'contact.save': '連絡先を保存',
+      'contact.saved': '保存しました ✓',
+      'contact.savedAnnounce': '連絡先カードをダウンロードしました。',
+
+      'rl.team': 'c0mpiled-12で開発中',
+      'rl.desc': 'RoundLabは、Dynamic Software Interfacesを中心に設計された、複数ジャンル対応の競技ゲーム向け意思決定ラボです。試合中の具体的な場面から、その状況専用のワークスペースを生成し、別の選択肢、結果、練習ドリルを検証できるようにします。',
+      'rl.roleLabel': '担当',
+      'rl.role': 'プロダクトリード · スコープ管理 · デモ・ピッチ担当',
+      'rl.status': 'ハッカソン開発 · 進行中',
+
+      'about.eyebrow': '自己紹介',
+      'about.heading': '実際の経験から、次のプロダクトへ。',
+      'about.body': '大阪の立命館大学で情報システム科学工学を学んでいます。日本の地域ビジネス向けに日英対応のウェブサイトを設計・納品してきました。現在は、現実世界の状況に応じて変化するAIプロダクトやソフトウェアに取り組んでいます。曖昧な課題を、実際に使える形へ落とし込むことが好きです。',
+      'about.fact1': '大阪を拠点に活動',
+      'about.fact2': '立命館大学',
+      'about.fact3': '有料クライアントサイト2件',
+      'about.fact4': 'AIを活用した開発',
+
+      'work.eyebrow': '制作実績',
+      'work.heading': '主な制作実績',
+      'work.sub': '実際の人のために納品したプロジェクトと、次に進もうとしている方向。',
+      'work.viewLive': '公開サイトを見る',
+      'work.rl.cat': 'AIプロダクト · ハッカソン開発',
+      'work.rl.desc': '競技ゲームの場面から、その状況専用の意思決定・練習インターフェースを生成するシステム。',
+      'work.rl.status': '開発中',
+      'work.purnima.cat': '有料クライアント案件 · 日英対応',
+      'work.purnima.desc': '大阪のインド・ネパール料理店向けに、メニュー、オンライン注文、店舗情報、モバイル対応を含む日英対応ウェブサイトを設計・納品しました。',
+      'work.dilkhus.cat': '有料クライアント案件 · 日本語中心',
+      'work.dilkhus.desc': 'フードコート内の地域レストラン向けに、日英コンテンツ、見やすいメニュー、店舗情報、地図アクセスを備えたモバイル対応サイトを制作しました。',
+      'work.more': 'その他の実験',
+      'work.kissa.cat': '個人コンセプトプロジェクト',
+      'work.kissa.desc': '雰囲気、エディトリアルな見せ方、レスポンシブデザインを重視して制作した自主的なカフェサイトのコンセプトです。',
+
+      'ex.eyebrow': '探求分野',
+      'ex.heading': '現在探求していること',
+      'ex.1.title': 'ワールドモデルと実世界AI',
+      'ex.1.body': '環境を理解し、変化を予測し、現実世界と意味のある形で関わるシステムに関心があります。',
+      'ex.2.title': 'ダイナミック・ソフトウェア・インターフェース',
+      'ex.2.body': 'すべての課題を固定画面に押し込むのではなく、利用者の状況、目的、制約に応じて構成が変化するインターフェースを探求しています。',
+      'ex.3.title': '人間中心のAIプロダクト',
+      'ex.3.body': '人を意思決定から外すのではなく、判断と行動を支援する人間中心のAIプロダクトを目指しています。',
+
+      'connect.eyebrow': 'つながる',
+      'connect.heading': 'この会話を、次につなげましょう。',
+      'connect.body': '意味のあるテクノロジーに取り組むデベロッパー、創業者、プロダクトビルダー、チームの方々とつながりたいと考えています。',
+
+      'footer.line': 'Yuvaraj Singh Mattu · 大阪・日本 · 2026'
+    }
+  };
+
+  /* ------------------------------------------------------------------
+     Language system
+     ------------------------------------------------------------------ */
+  var LANG_KEY = 'ysm-lang';
+  var currentLang = 'en';
+  var announcer = document.getElementById('sr-announcer');
+
+  function safeGetLang() {
+    try {
+      var stored = window.localStorage.getItem(LANG_KEY);
+      return (stored === 'ja' || stored === 'en') ? stored : null;
+    } catch (e) {
+      return null;
+    }
   }
 
-  .hero-content {
-    text-align: left;
+  function safeSetLang(lang) {
+    try {
+      window.localStorage.setItem(LANG_KEY, lang);
+    } catch (e) { /* private mode — ignore */ }
   }
 
-  .hero-tagline,
-  .hero-intro {
-    margin-left: 0;
-    margin-right: 0;
+  function translatePage(lang) {
+    var dict = translations[lang];
+    if (!dict) return;
+
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-aria');
+      if (dict[key] !== undefined) el.setAttribute('aria-label', dict[key]);
+    });
+
+    document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-alt');
+      if (dict[key] !== undefined) el.setAttribute('alt', dict[key]);
+    });
+
+    document.documentElement.setAttribute('lang', lang === 'ja' ? 'ja' : 'en');
+
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
+      var active = btn.getAttribute('data-lang') === lang;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+
+    currentLang = lang;
   }
 
-  .hero-trust-badges {
-    justify-content: flex-start;
+  function setLanguage(lang, options) {
+    options = options || {};
+    if (lang === currentLang && !options.force) return;
+
+    var apply = function () {
+      translatePage(lang);
+      safeSetLang(lang);
+      if (options.announce && announcer) {
+        announcer.textContent = lang === 'ja'
+          ? '表示言語を日本語に切り替えました。'
+          : 'Language switched to English.';
+      }
+    };
+
+    if (options.instant || prefersReducedMotion.matches) {
+      apply();
+      return;
+    }
+
+    // Brief cross-fade of main content
+    document.body.classList.add('lang-fading');
+    window.setTimeout(function () {
+      apply();
+      document.body.classList.remove('lang-fading');
+    }, 180);
   }
 
-  .hero-buttons {
-    justify-content: flex-start;
+  // First load: stored preference wins, otherwise English.
+  var initialLang = safeGetLang() || 'en';
+  if (initialLang !== 'en') {
+    setLanguage(initialLang, { instant: true, force: true });
   }
 
-  .profile-photo {
-    width: 220px;
-    height: 220px;
-  }
-}
+  document.querySelectorAll('.lang-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      setLanguage(btn.getAttribute('data-lang'), { announce: true });
+    });
+  });
 
-/* Responsive */
-@media (max-width: 768px) {
-  .desktop-nav {
-    display: none;
-  }
+  /* ------------------------------------------------------------------
+     Mobile navigation
+     ------------------------------------------------------------------ */
+  var header = document.querySelector('.site-header');
+  var navToggle = document.querySelector('.nav-toggle');
+  var siteNav = document.getElementById('site-nav');
 
-  .menu-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hero {
-    padding: 4rem 0 3.5rem;
+  function closeNav() {
+    if (!header.classList.contains('nav-open')) return;
+    header.classList.remove('nav-open');
+    navToggle.setAttribute('aria-expanded', 'false');
   }
 
-  .hero-photo::before {
-    width: 220px;
-    height: 220px;
+  function openNav() {
+    header.classList.add('nav-open');
+    navToggle.setAttribute('aria-expanded', 'true');
   }
 
-  .services-grid,
-  .portfolio-grid,
-  .pricing-grid {
-    grid-template-columns: 1fr;
+  if (navToggle && siteNav) {
+    navToggle.addEventListener('click', function () {
+      header.classList.contains('nav-open') ? closeNav() : openNav();
+    });
+
+    siteNav.addEventListener('click', function (e) {
+      if (e.target.closest('a')) closeNav();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeNav();
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (header.classList.contains('nav-open') && !header.contains(e.target)) {
+        closeNav();
+      }
+    });
   }
 
-  .project-thumb {
-    height: 160px;
+  /* ------------------------------------------------------------------
+     Scroll reveal (IntersectionObserver)
+     ------------------------------------------------------------------ */
+  var revealEls = document.querySelectorAll('[data-reveal]');
+
+  function showAll() {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
-  .btn {
-    width: 100%;
-    text-align: center;
+  if (prefersReducedMotion.matches || !('IntersectionObserver' in window)) {
+    showAll();
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
   }
 
-  .floating-cta {
-    bottom: 1rem;
-    right: 1rem;
-    padding: 0.75rem 1rem;
-    font-size: 0.85rem;
+  /* ------------------------------------------------------------------
+     Active navigation state
+     ------------------------------------------------------------------ */
+  var navLinks = document.querySelectorAll('.nav-link');
+
+  if ('IntersectionObserver' in window && navLinks.length) {
+    var sectionMap = {};
+    navLinks.forEach(function (link) {
+      var id = link.getAttribute('href').slice(1);
+      var section = document.getElementById(id);
+      if (section) sectionMap[id] = link;
+    });
+
+    var activeObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = sectionMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.removeAttribute('aria-current'); });
+          link.setAttribute('aria-current', 'true');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+    Object.keys(sectionMap).forEach(function (id) {
+      activeObserver.observe(document.getElementById(id));
+    });
   }
-}
+
+  /* ------------------------------------------------------------------
+     Portrait motion — desktop pointers only
+     ------------------------------------------------------------------ */
+  var portraitFrame = document.querySelector('.portrait-frame');
+  var hero = document.querySelector('.hero');
+  var finePointer = window.matchMedia('(pointer: fine)');
+
+  if (portraitFrame && hero && finePointer.matches && !prefersReducedMotion.matches) {
+    var rafId = null;
+    var targetX = 0;
+    var targetY = 0;
+
+    hero.addEventListener('mousemove', function (e) {
+      var rect = hero.getBoundingClientRect();
+      targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 10;
+      targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
+
+      if (rafId === null) {
+        rafId = window.requestAnimationFrame(function () {
+          portraitFrame.style.setProperty('--tilt-x', targetX.toFixed(1) + 'px');
+          portraitFrame.style.setProperty('--tilt-y', targetY.toFixed(1) + 'px');
+          rafId = null;
+        });
+      }
+    });
+
+    hero.addEventListener('mouseleave', function () {
+      portraitFrame.style.setProperty('--tilt-x', '0px');
+      portraitFrame.style.setProperty('--tilt-y', '0px');
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     vCard download (no email / phone — none exist)
+     ------------------------------------------------------------------ */
+  function buildVCard() {
+    var lines = [
+      'BEGIN:VCARD',
+      'VERSION:3.0',
+      'N:Mattu;Yuvaraj Singh;;;',
+      'FN:Yuvaraj Singh Mattu',
+      'TITLE:ISSE Student\\, Developer and Product Builder',
+      'ADR;TYPE=WORK:;;;Osaka;;;Japan',
+      'URL:https://yuviro09.github.io/portfolio/',
+      'URL;TYPE=LinkedIn:https://www.linkedin.com/in/yuvaraj-singh-mattu-41aa75316/',
+      'URL;TYPE=GitHub:https://github.com/Yuviro09',
+      'X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/yuvaraj-singh-mattu-41aa75316/',
+      'X-SOCIALPROFILE;TYPE=github:https://github.com/Yuviro09',
+      'NOTE:Information Systems Science and Engineering student at Ritsumeikan University\\, Osaka. Builds bilingual websites for real clients and explores AI products and dynamic software interfaces.',
+      'END:VCARD'
+    ];
+    return lines.join('\r\n');
+  }
+
+  function downloadVCard(button) {
+    var blob = new Blob([buildVCard()], { type: 'text/vcard;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var link = document.createElement('a');
+    link.href = url;
+    link.download = 'yuvaraj-singh-mattu.vcf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+
+    // Visual + screen-reader confirmation
+    var label = button.querySelector('.save-label');
+    var dict = translations[currentLang];
+    if (label) {
+      button.classList.add('is-saved');
+      label.textContent = dict['contact.saved'];
+      window.setTimeout(function () {
+        button.classList.remove('is-saved');
+        // Re-read current language in case it changed while confirming
+        label.textContent = translations[currentLang]['contact.save'];
+      }, 2400);
+    }
+    if (announcer) {
+      announcer.textContent = dict['contact.savedAnnounce'];
+    }
+  }
+
+  document.querySelectorAll('.js-save-contact').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      downloadVCard(btn);
+    });
+  });
+
+})();
